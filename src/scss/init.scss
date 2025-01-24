@@ -1,0 +1,87 @@
+@charset "utf-8";
+
+//변수
+$primary: #ff8800;
+$bk1: #222;
+$bk2: #444;
+$bk3: #666;
+$bk4: #999;
+$bg: #fafafa;
+$br: #eee;
+// $ff: 'Pretendard', sans-serif;
+// $mobile: 0px;
+// $tablet: 768px;
+// $desktop: 992px;
+
+// $breakpoints: (
+//    'sm': (
+//       min-width: $mobile,
+//       max-width: $tablet -1px,
+//    ),
+//    'md': (
+//       min-width: $tablet,
+//       max-width: $desktop,
+//    ),
+//    'lg': (
+//       min-width: $desktop,
+//    ),
+// );
+
+@mixin media($size){
+  $query: map-get($breakpoints, $size );
+  $min-width: map-get($query, min-width);
+  $max-width: map-get($query, max-width);
+
+  @if $min-width and $max-width {
+     @media (min-width: #{$min-width}) and (max-width: #{$max-width}){
+        @content;
+     }
+
+  } @else if $min-width {
+     @media (min-width: #{$min-width}){
+        @content;
+     }
+  }@else if $max-width {
+     @media (max-width: #{$max-width}){
+        @content;
+     }
+  }
+}
+@mixin df($d: row, $just: space-evenly, $align: center, $g: 1rem) {
+  display: flex;
+  flex-direction: $d;
+  justify-content: $just;
+  align-items: $align;
+  gap: $g;
+  @content;
+}
+@mixin item($c: 50%, $a: 1, $b: 1) {
+  flex-shrink: $a;
+  flex-grow: $b;
+  flex-basis: $c;
+  @content;
+}
+@mixin padding($l: auto, $t: auto, $r: auto, $b: auto) {
+  padding-left: $l;
+  padding-top: $t;
+  padding-right: $r;
+  padding-bottom: $b;
+}
+@mixin font($s: 1rem, $w: 500, $c: $text2, $a: left, $f: $ff) {
+  font-family: $f;
+  font-size: $s;
+  font-weight: $w;
+  color: $c;
+  text-align: $a;
+  @content;
+}
+@mixin psudo() {
+  content: '';
+  position: absolute;
+  @content;
+}
+%cut {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
