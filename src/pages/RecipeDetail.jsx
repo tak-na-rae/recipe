@@ -60,9 +60,11 @@ const RecipeDetail = () => {
                   <span className="help">* 대표사진 외 이미지들은 선명하지 않을 수 있으니 양해 부탁드립니다.</span>
                 </div>
                 <div className="txt">
-                  <span className="badge">{menu.RCP_PAT2}</span>
-                  <h2 className="heading-tit">{menu.RCP_NM}</h2>
-                  <p className="tip">{menu.RCP_NA_TIP}</p>
+                  <div className="subject">
+                    <span className="badge">{menu.RCP_PAT2}</span>
+                    <h2 className="heading-tit">{menu.RCP_NM}</h2>
+                    <p className="tip">{menu.RCP_NA_TIP}</p>
+                  </div>
 
                   <ul className="option-list">
                     {menu.INFO_WGT && <li>중량(1인분) <b>{menu.INFO_WGT}</b></li>}
@@ -73,13 +75,13 @@ const RecipeDetail = () => {
                     {menu.INFO_NA && <li>나트륨 <b>{menu.INFO_NA}</b></li>}
                   </ul>
                   <div className="parts">{menu.RCP_PARTS_DTLS ? menu.RCP_PARTS_DTLS.replace(/●/g, "") : null}</div>
-                  <ul className="idx-list">
+                  <ol className="idx-list">
                     {Object.keys(menu)
                       .filter((key)=> key.startsWith("MANUAL") && !key.startsWith("MANUAL_IMG") && menu[key])
                       .sort((a, b) => parseInt(a.slice(-2)) - parseInt(b.slice(-2)))
                       .map((key,idx)=> ( <li key={idx}>{menu[key]}</li> ))
                     }
-                  </ul>
+                  </ol>
                 </div>
               </div>
             </>

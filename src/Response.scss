@@ -1,0 +1,54 @@
+@media(max-width:767px){
+  body { min-width:320px; }
+  .layout-fix { width:100%; min-width:320px; padding:0 24px; }
+
+  //===Nav
+  .nav {
+    .gnb{ max-width:400px; margin:0 auto; gap:0; justify-content:space-between;
+      li { font-size:18px; white-space:nowrap; }
+    }
+  }
+
+  //===Main/recommended
+  .recommend-cont { padding:60px 0; margin:-60px 0 60px;
+    .swiper-recommend {
+      .swiper-slide { 
+        .name { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; word-break:keep-all; }
+       }
+    }
+  }
+
+  //===Main/list
+  [class^="p-"] { padding:60px 0 100px; }
+  .heading-tit { margin-bottom:24px; font-size:24px; }
+  .recipe-list { margin-left:-16px;
+    > li { width:50%; padding-left:16px; padding-bottom:32px;
+      .img-scale {
+        img { aspect-ratio:1/1; }
+      }
+      .name { font-size:16px; overflow:hidden; text-overflow:ellipsis; word-wrap:break-word; word-break:keep-all; display:block; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; white-space:pre-wrap; }
+    }
+  }
+
+  //===Detail
+  .p-detail {
+    .info { position:relative; flex-direction:column;
+      .thumb-group { width:100%; min-width:auto; padding-right:0; margin-top:40px; order:1;
+        > img { height:auto; }
+      }
+      .txt {
+        .subject { padding-bottom:36px; margin-bottom:32px;
+          .tip { font-size:15px; }
+        }
+        .option-list { margin-bottom:32px; text-align:center; font-size:14px; }
+        .parts { max-width:none; }
+        .idx-list { max-width:none; }
+      }
+    }
+  }
+  
+  //===Swiper
+  [class^="p-"] .swiper-pagination { margin-top:48px; }
+
+}
+

@@ -1,0 +1,83 @@
+* { padding:0; margin:0; font-family:inherit; font-weight:inherit; box-sizing:border-box; }
+body { min-width:1320px; background-color:#fafafa; font-family:"Noto Sans KR", serif; font-size:15px; font-weight:400; color:#222; }
+ul, ol, li { list-style:none; }
+a { color:inherit; text-decoration:none; }
+img { max-width:100%; max-height:100%; }
+::selection { background-color:#222; color:#ff8800; }
+.layout-fix { width:1280px; padding:0 20px; margin:0 auto; }
+
+
+.loading { background-color:#ff8800; color:#fff; position:fixed; top:0; right:0; bottom:0; left:0; z-index:32; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:24px;
+ .spinner { width:40px; height:40px; border-top:3px solid rgba(255, 255, 255, 0.7); border-right:3px solid rgba(255, 255, 255, 0.7); border-radius:50%; animation:rotation .75s linear infinite; }
+  h2 { font-weight:300; }
+}
+@keyframes rotation { 0% { transform:rotate(0); }
+ 100% { transform:rotate(360deg); }
+}
+
+.nav { padding:22px 0 24px; background-color:rgba(255, 255, 255, 0.75); backdrop-filter:saturate(1) blur(16px); position:fixed; right:0; bottom:0; left:0; z-index:32; border-top:1px solid #ddd;
+ .gnb { display:flex; justify-content:center; gap:40px;
+    li { font-size:20px; }
+  }
+}
+
+.recommend-cont { padding:80px 0; margin:-80px 0 80px; background-color:rgba(255, 136, 0, 0.15);
+ .layout-fix { position:relative; }
+}
+
+.swiper-recommend { position:relative;
+ .swiper-slide {
+  .name { margin-top:6px; text-align:center; font-size:16px; word-break:keep-all; }
+    img { width:100%; border-radius:8px; aspect-ratio:1/1; object-fit:cover; }
+  }
+}
+
+[class^="p-"] { padding:80px 0 120px;
+  .swiper-pagination { margin-top:60px; font-size:16px; color:#444; position:relative;
+    .swiper-pagination-current { color:#ff8800; }
+  }
+ .swiper-pager { max-width:150px; margin:0 auto; position:absolute; right:0; bottom:5px; left:0; z-index:1; display:flex; justify-content:space-between;
+    [class^="swiper-"] { font-size:0; cursor:pointer;
+      &::after { width:28px; line-height:28px; text-align:center; font-family:swiper-icons; font-size:12px; font-weight:500; background-color:rgba(255, 136, 0, 0.75); color:#fff; border-radius:100px; display:inline-block; }
+      &:hover::after { background-color:#ff8800; transition:.15s ease; }
+    }
+  }
+ .swiper-prev::after { content:'prev'; }
+ .swiper-next::after { content:'next'; }
+}
+
+.heading-tit { margin-bottom:32px; font-size:36px; font-weight:300; color:#ff8800; }
+[class$="-list"]:not([class*="idx"]) { display:flex; } //detail-ol 제외
+.recipe-list { margin-left:-24px; flex-wrap:wrap;
+  > li { width:25%; padding-bottom:40px; padding-left:24px;
+    .cont { position:relative; }
+    .badge { padding:6px 12px; background-color:#ff8800; font-size:13px; color:#fff; position:absolute; top:14px; left:16px; z-index:1; border-radius:6px; box-shadow:0 2px 14px rgba(0, 0, 0, 0.1); display:block; } }
+    .name { margin-top:10px; text-align:center; font-size:18px; word-break:keep-all; }
+    .img-scale { border:1px solid #eee; border-radius:10px; overflow:hidden;
+    img { width:100%; max-height:292px; object-fit:cover; aspect-ratio:1/1.12; transition:.35s ease; display:block; }
+    &:hover img { scale:1.05; }
+  }
+}
+
+.p-detail .info { word-break:keep-all; display:flex;
+  .thumb-group { width:540px; min-width:540px; padding-right:40px;
+    > img { width:100%; height:500px; aspect-ratio:1/1; object-fit:cover; border-top-right-radius:10px; border-top-left-radius:10px; display:block; }
+    .thumb-list { border-bottom-right-radius:10px; border-bottom-left-radius:10px; overflow:hidden;
+      li { flex:1; }
+      img { width:100%; height:100%; object-fit:cover; aspect-ratio:1/1; cursor:pointer; }
+    }
+    .help { margin-top:12px; text-align:center; font-size:14px; color:#999; display:block; }
+  }
+  .txt { font-size:16px; flex:1;
+    .subject { padding-bottom:38px; margin-bottom:40px; border-bottom:1px solid #ddd;
+    .badge { padding:4px 8px 6px; margin-bottom:12px; margin-left:2px; background-color:#ff8800; font-size:13px; font-weight:500; color:#fff; border-radius:6px; display:inline-block; }
+    .heading-tit { margin-bottom:8px; font-weight:400; color:#222; }
+    .tip { font-size:20px; color:#444; } }
+    .option-list { margin-bottom:8px; color:#444; gap:10px;
+    b { font-weight:500; color:#222; } }
+    .parts { max-width:85%; line-height:1.58; font-weight:500; word-break:keep-all; }
+    .idx-list { max-width:85%; margin-top:24px;
+      li { margin-bottom:6px; line-height:1.54; }
+    }
+  }
+}

@@ -1,7 +1,9 @@
 import './App.css';
+import './Global.scss';
+import './Response.scss';
 // import "./App.scss";
 
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Home from './pages/Home.jsx';
 import RecipeDetail from './pages/RecipeDetail.jsx';
 import Category from './pages/Category.jsx';
@@ -35,6 +37,11 @@ function App() { // https://www.foodsafetykorea.go.kr/api/newDatasetDetail.do
     getDB();
     setLoading(false);
   },[])
+
+  const location = useLocation();
+  useEffect(()=>{
+    window.scrollTo({ top:0 })
+  },[location])
 
   
   const [checkCate,setCheckCate] = useState(null); //+++상세페이지 카테고리 매치 / RCP_PAT2 상태

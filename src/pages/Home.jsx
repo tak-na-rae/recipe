@@ -34,8 +34,14 @@ const Home = () => {
           <Swiper className="swiper-recommend"
               modules={[Autoplay, Navigation, Pagination, Scrollbar, A11y]}
               loop={true}
-              slidesPerView={6}
-              spaceBetween={20}
+              slidesPerView={1} //MO
+              spaceBetween={0}
+              breakpoints={{
+                767: {
+                  slidesPerView:6, //PC
+                  spaceBetween:20
+                }
+              }}
               autoplay={{ delay: 2000, disableOnInteraction:false }}
               pagination={{ type:'fraction', clickable: true }}
               navigation={{ prevEl:'.swiper-prev', nextEl:'.swiper-next' }}
