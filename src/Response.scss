@@ -35,6 +35,7 @@
     .info { position:relative; flex-direction:column;
       .thumb-group { width:100%; min-width:auto; padding-right:0; margin-top:40px; order:1;
         > img { height:auto; }
+        .help { padding:0 12px; }
       }
       .txt {
         .subject { padding-bottom:36px; margin-bottom:32px;
